@@ -2,10 +2,10 @@ import random
 from statistics import mean
 
 
-# Lower and upper bounds for numbers to guess.
+# Lower and upper bounds of numbers to guess.
 LOWER_BOUND = 1
 UPPER_BOUND = 100
-# Number of samples of unform preudo random distribution
+# Number of samples of uniform pseudo random distribution
 # used to estimate algorithm efficiency.
 SAMPLE_SIZE = 10000
 
@@ -25,14 +25,14 @@ def main(algorithm):
     guess_numbers = [random.randint(LOWER_BOUND, UPPER_BOUND)
                      for i in range(SAMPLE_SIZE)]
 
-    # Start the game many times for the first list.
+    # Start the game many times.
     attempts = []
     for number in guess_numbers:
         attempts.append(algorithm(number))
 
     # Calculate the average number of attempts to guess.
     result = mean(attempts)
-    print(f"Your algorithm guesses the number on average in {result} attempts")
+    print(f"Your algorithm guesses a number on average in {result} attempts")
     return result
 
 
@@ -61,7 +61,7 @@ def my_algorithm(number):
         else:
             break                       # Exit if guess
 
-    # Return amount of attempst to guess
+    # Return amount of attempts to guess
     return(len(predict))
 
 
