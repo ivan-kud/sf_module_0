@@ -16,6 +16,8 @@ def main(algorithm):
     Start the game for SAMPLE_SIZE times to estimate algorithm
     efficiency - average number of attempts to guess.
     """
+    global LOWER_BOUND
+    global UPPER_BOUND
     global SAMPLE_SIZE
 
     # Initialize the random generator.
@@ -41,9 +43,12 @@ def my_algorithm(number):
 
     The function generates the numbers and check either it is less
     or more or equal to the guess number.  The generation algorithm
-    is based on dichotomy (devision by two).  Returns the amount of
-    attempts to guess the number.
+    is based on binary search or dichotomy (devision by two).
+    Returns the amount of attempts to guess the number.
     """
+    global LOWER_BOUND
+    global UPPER_BOUND
+
     # Current bounds of the number.
     lower, upper = LOWER_BOUND, UPPER_BOUND
     # List of predictions.
