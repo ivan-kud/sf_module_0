@@ -16,7 +16,7 @@ def main(algorithm):
     Start the game for SAMPLE_SIZE times to estimate algorithm
     efficiency - average number of attempts to guess.
     """
-    print('Checkout and new change')
+    print('Checkout and test branch changes')
     global LOWER_BOUND
     global UPPER_BOUND
     global SAMPLE_SIZE
