@@ -18,6 +18,8 @@ def main(algorithm):
     """
     print('Checkout and main changes')
     print('New main changes')
+    print('Checkout and test branch changes')
+
     global LOWER_BOUND
     global UPPER_BOUND
     global SAMPLE_SIZE
