@@ -69,7 +69,7 @@ def my_algorithm(number, visualize=False):
 
     # Visualize algorithm.
     if visualize:
-        print(f'Sequence {predict} to predict {number}')
+        print(f'Sequence {predict} to guess {number}')
 
     # Return amount of attempts to guess.
     return(len(predict))
