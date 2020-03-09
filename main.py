@@ -1,5 +1,4 @@
 import random
-from statistics import mean
 
 
 # Lower and upper bounds of numbers to guess.
@@ -16,10 +15,6 @@ def main(algorithm):
     Start the game for SAMPLE_SIZE times to estimate algorithm
     efficiency - average number of attempts to guess.
     """
-    print('Checkout and main changes')
-    print('New main changes')
-    print('Checkout and test branch changes')
-
     global LOWER_BOUND
     global UPPER_BOUND
     global SAMPLE_SIZE
@@ -27,22 +22,24 @@ def main(algorithm):
     # Initialize the random generator.
     random.seed()
 
-    # Fill the list of numbers to guess.
-    guess_numbers = [random.randint(LOWER_BOUND, UPPER_BOUND)
-                     for i in range(SAMPLE_SIZE)]
+    # Initialize the sum using further to calculate mean.
+    sum_ = 0
 
-    # Start the game many times.
-    attempts = []
-    for number in guess_numbers:
-        attempts.append(algorithm(number))
+    # Start the game SAMPLE_SIZE times.
+    for i in range(SAMPLE_SIZE):
+        # A number to guess is a random number.
+        number = random.randint(LOWER_BOUND, UPPER_BOUND)
+        
+        # Run prediction algorithm and accumulate the sum.
+        sum_ += algorithm(number, False)
 
     # Calculate the average number of attempts to guess.
-    result = mean(attempts)
-    print(f"Your algorithm guesses a number on average in {result} attempts")
+    result = sum_ / SAMPLE_SIZE
+    print(f'Your algorithm guesses a number on average in {result} attempts')
     return result
 
 
-def my_algorithm(number):
+def my_algorithm(number, visualize=False):
     """Rules of the game and playing algorithm.
 
     The function generates the numbers and check either it is less
@@ -70,7 +67,11 @@ def my_algorithm(number):
         else:
             break                       # Exit if guess
 
-    # Return amount of attempts to guess
+    # Visualize algorithm.
+    if visualize:
+        print(f'Sequence {predict} to predict {number}')
+
+    # Return amount of attempts to guess.
     return(len(predict))
 
 
